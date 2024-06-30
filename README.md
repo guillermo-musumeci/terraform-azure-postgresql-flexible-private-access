@@ -11,7 +11,8 @@ Blog --> https://gmusumeci.medium.com/how-to-deploy-a-private-access-azure-postg
 
 - Resource Group
 - VNET and Subnet
-- Private DNS 
+- Private DNS
+- Private DNS Zone Virtual Network Link for PostgreSQL
 - PostgreSQL Flexible Server
 - PostgreSQL Database
 - PostgreSQL Extensions
