@@ -22,8 +22,8 @@ azure_tenant_id       = "complete-this"
 #############
 ## Network ##
 #############
-vnet_address_space            = "10.88.0.0/16"
-postgres_subnet_address_space = "10.88.2.0/24"
+vnet_address_space           = "10.88.0.0/16"
+private_subnet_address_space = "10.88.2.0/24"
 
 ##############
 ## Database ##
