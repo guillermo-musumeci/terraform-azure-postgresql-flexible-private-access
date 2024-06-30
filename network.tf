@@ -21,8 +21,8 @@ resource "azurerm_virtual_network" "this" {
 }
 
 # Create the Subnet for PostgreSQL
-resource "azurerm_subnet" "postgres" {
-  name                 = "${lower(replace(var.company," ","-"))}-${var.app_name}-${var.environment}-postgres-subnet"
+resource "azurerm_subnet" "private" {
+  name                 = "${lower(replace(var.company," ","-"))}-${var.app_name}-${var.environment}-postgres-private-subnet"
   resource_group_name  = azurerm_resource_group.this.name
   virtual_network_name = azurerm_virtual_network.this.name
   address_prefixes     = [var.postgres_subnet_address_space]
@@ -45,8 +45,8 @@ resource "azurerm_subnet" "postgres" {
 }
 
 # Create NSG
-resource "azurerm_network_security_group" "postgres" {
-  name                = "${lower(replace(var.company," ","-"))}-${var.app_name}-${var.environment}-postgres-nsg"
+resource "azurerm_network_security_group" "private" {
+  name                = "${lower(replace(var.company," ","-"))}-${var.app_name}-${var.environment}-postgres-private-nsg"
   location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
 
@@ -76,7 +76,7 @@ resource "azurerm_network_security_group" "postgres" {
 }
 
 # Attach NSG to Subnet
-resource "azurerm_subnet_network_security_group_association" "postgres" {
-  subnet_id                 = azurerm_subnet.postgres.id
-  network_security_group_id = azurerm_network_security_group.postgres.id
+resource "azurerm_subnet_network_security_group_association" "private" {
+  subnet_id                 = azurerm_subnet.private.id
+  network_security_group_id = azurerm_network_security_group.private.id
 }
