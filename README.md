@@ -28,7 +28,7 @@ List of variables used in this code to configure the PostgreSQL Flexible Server:
 | `environment` | This variable defines the environment to be built | string |
 | `tags` | The collection of tags to be applied to all resources | map(string) |
 | `vnet_address_space` | CIDR of the VNET | string | 
-| `postgres_subnet_address_space` | CIDR of the Subnet used for Private PostgreSQL | string | 
+| `private_subnet_address_space` | CIDR of the Subnet used for Private PostgreSQL | string | 
 | `private_dns_resource_group` | The Resource Group where the Private DNS for PostgreSQL was created | string | 
 | `postgres_user` | The username for PostgreSQL administrator login | string |
 | `postgres_password` | The password for PostgreSQL administrator login | string |
