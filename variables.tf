@@ -70,7 +70,7 @@ variable "vnet_address_space" {
   description = "VNET CIDR Block"
 }
 
-variable "postgres_subnet_address_space" {
+variable "private_subnet_address_space" {
   type        = string
   description = "PostgreSQL Subnet CIDR"
 }
