@@ -24,7 +24,7 @@ resource "azurerm_postgresql_flexible_server" "private" {
   public_network_access_enabled = false
 
   private_dns_zone_id = data.azurerm_private_dns_zone.postgres_dns_zone.id
-  delegated_subnet_id = azurerm_subnet.postgres.id
+  delegated_subnet_id = azurerm_subnet.private.id
 
   administrator_login    = var.postgres_user
   administrator_password = var.postgres_password
@@ -34,7 +34,7 @@ resource "azurerm_postgresql_flexible_server" "private" {
 
   tags = var.tags
 
-  depends_on = [ azurerm_subnet.postgres, azurerm_private_dns_zone_virtual_network_link.private ]
+  depends_on = [ azurerm_subnet.private, azurerm_private_dns_zone_virtual_network_link.private ]
 }
 
 # Create PostgreSQL Database
